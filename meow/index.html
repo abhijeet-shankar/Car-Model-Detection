@@ -60,7 +60,7 @@
         justify-content: center;
       }
 
-      a {
+      a{
         display: block;
         width: 45%;
         height: 45px;
@@ -82,7 +82,6 @@
   </head>
 
   <body>
-    <!-- Title -->
     <h1>Car Brand Detection</h1>
 
     <br />
@@ -92,18 +91,25 @@
     <p><img id="output" width="200" /></p>
     <br />
      -->
+      
     <div class="image-preview-container">
       <div class="preview">
         <img id="preview-selected-image" />
       </div>
-      <label for="file-upload">Upload Image</label>
+      <label for="upload">Upload Image</label>
+      <form method="POST" action="/detect" enctype="multipart/form-data">
       <input
         type="file"
-        id="file-upload"
+        name="upload"
+        id="upload"
         accept="image/*"
         onchange="previewImage(event);"
       />
-      <a href="cardetect">Predict</a>
+      <input type="submit"/>
+      <a onclick="this.parentNode.submit();">click here</a>
+    </form>
+  
+    
     </div>
     <!-- <img src="{{url_for('static', filename='mw.jpg')}}" align="middle" /> -->
     <!-- 
@@ -140,6 +146,8 @@
         const imagePreviewElement = document.querySelector(
           "#preview-selected-image"
         );
+        var image = document.getElementById('output');
+        image.value = imageSrc;
         /**
          * Assign the path to the image preview element.
          */
