@@ -2,7 +2,7 @@ import flask
 from flask import Flask,render_template, request, send_file
 import cardetect
 
-app= Flask(__name__,template_folder='meow')
+app= Flask(__name__,template_folder='meow',static_folder=static)
 
 @app.route('/')
 def index():

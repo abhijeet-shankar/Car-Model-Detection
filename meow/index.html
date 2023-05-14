@@ -8,7 +8,7 @@
       body{
         height: 400px;
        width: 100%;
-        background-image: "{{url_for('static', filename='mw.jpg')}}"
+       background-image: url('/static/mw.jpg')
       }
       
       h1 {
@@ -105,7 +105,7 @@
       />
       <a href="cardetect">Predict</a>
     </div>
-
+    <!-- <img src="{{url_for('static', filename='mw.jpg')}}" align="middle" /> -->
     <!-- 
     <br />
     <label for="image">Select an image(optional):</label>
