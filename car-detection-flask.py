@@ -2,7 +2,7 @@ import flask
 from flask import Flask,render_template, request, send_file
 import cardetect
 
-app= Flask(__name__,template_folder='meow',static_folder=static)
+app= Flask(__name__,template_folder='meow')
 
 @app.route('/')
 def index():
@@ -12,11 +12,11 @@ def index():
 def home():
     return render_template('index.html')
 
-@app.route('/cardetect', methods=['POST'])
+@app.route('/cardetect', methods=['GET','POST'])
 def cardetect():
-    img1= request.files['image']
+    img1= request.files['file-upload']
     b=cardetect.detect(img1)
-    return render_template('index.html')
+    return render_template('prediction.html',b=b)
 
 
 
