@@ -3,6 +3,12 @@ from flask import Flask,render_template, request, send_file
 import cardetect
 from tensorflow.keras.preprocessing import image
 import os
+import numpy as np
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import image
+import numpy as np
+from tensorflow.keras.applications.resnet50 import preprocess_input
+model=load_model("model_resnet50.h5")
 
 app= Flask(__name__,template_folder='meow')
 
@@ -14,28 +20,21 @@ def index():
 def home():
     return render_template('index.html')
 
-
-
-
 @app.route('/cardetect', methods=['GET','POST'])
 def cardetect():
     return render_template('prediction.html')
 
-
-
 @app.route('/detect', methods=['GET','POST'])
 def detect():
-    # if request.method==['POST']:
     print(request.files)
-    img1= request.files['file']
-    img1=img1.filename
-    img=image.load_img(img1,target_size=(224,224))
+    img1= request.files['upload']
+    img1.save("uploaded.jpg")
+    img=image.load_img("uploaded.jpg",target_size=(224,224))
     x=image.img_to_array(img)
     x=x/255
     x=np.expand_dims(x,axis=0)
     img_data=preprocess_input(x)
     model.predict(img_data)
-
     a=np.argmax(model.predict(img_data), axis=1)
     b=int(a)
     x=""
@@ -58,9 +57,8 @@ def detect():
     elif(b==8):
         x=x+"Toyota"
     elif(b==9):
-        x=x+"Volkswagen"
-    # else:
-    #     return render_template('prediction.html',x=x)   
+        x=x+"Volkswagen"  
+    os.remove("uploaded.jpg")
     return render_template('prediction.html',x=x)    
 
 
