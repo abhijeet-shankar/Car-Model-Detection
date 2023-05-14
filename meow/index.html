@@ -8,7 +8,7 @@
       body{
         height: 400px;
        width: 100%;
-        background-image: url("./mw.jpg") ;
+        background-image: "{{url_for('static', filename='mw.jpg')}}"
       }
       
       h1 {
@@ -103,7 +103,7 @@
         accept="image/*"
         onchange="previewImage(event);"
       />
-      <a href="">Predict</a>
+      <a href="cardetect">Predict</a>
     </div>
 
     <!-- 

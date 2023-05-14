@@ -6,8 +6,8 @@ model=load_model('model_resnet50.h5')
 
 
 
-def detect():
-    img=image.load_img(r'C:\Users\DELL\OneDrive\Desktop\Proj\Car-Model-Detection\Datasets\Test\tesla\tesla_95.jpeg',target_size=(224,224))
+def detect(img1):
+    img=image.load_img(img1,target_size=(224,224))
     x=image.img_to_array(img)
     x=x/255
     x=np.expand_dims(x,axis=0)
@@ -39,5 +39,3 @@ def detect():
         x=x+"Volkswagen"
     return x    
 
-b=detect()
-print(b)
