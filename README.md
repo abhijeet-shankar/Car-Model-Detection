@@ -1,6 +1,6 @@
 # Car-Model-Detection
 
-Car Model Detection using ResNet50
+Car Model Detection using ResNet50. 
 This is a Python project that uses transfer learning with the ResNet50 model to detect the brand of cars. The project is built with Flask as the front-end framework.
 
 ## About the Model
@@ -12,22 +12,27 @@ The model uses the ResNet50 architecture which is a deep learning neural network
 To run the application, follow the steps below:
 
 1. Clone the repository to your local machine:
-git clone https://github.com/<abhijeet-shankar>/car-model-detection.git
-
+```bash
+git clone https://github.com/abhijeet-shankar/car-model-detection.git
+```
 2. Install the necessary dependencies:
+```bash
 !pip install flask
 !pip install tensorflow
-  
-
+```
 3. Run the Flask application:
+```bash
 python car-detection-flask.py
+```
   
 
 4. Open a web browser and navigate to `http://localhost:8080` to use the application.
 
+NOTE: **I would like to inform you that the model used in the project is not available on the GitHub repository due to its size exceeding the platform's limit. Therefore, I kindly request that you reach out to the appropriate administrator or authority to request access to the model.**
+
 ## Tuning the Model
 
-The current version of the model is not always accurate and may need to be fine-tuned to improve its performance. To do this, you can modify the hyperparameters of the model in the `train.py` file and retrain the model on a larger dataset.
+The current version of the model is not always accurate and may need to be fine-tuned to improve its performance. To do this, you can modify the hyperparameters of the model in the `car-detection.ipynb` file and retrain the model on a larger dataset.
 
 ## Credits
 
