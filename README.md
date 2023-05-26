@@ -1,7 +1,7 @@
 # Car-Model-Detection
 
 Car Model Detection using ResNet50. 
-This is a Python project that uses transfer learning with the ResNet50 model to detect the brand of cars. The project is built with Flask as the front-end framework.
+This is a Python project that uses transfer learning with the ResNet50 model to detect the brand of cars. The frontend of the project is a web-based application built on Flask .
 
 ## About the Model
 
